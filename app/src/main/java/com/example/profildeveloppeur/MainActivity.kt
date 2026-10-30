@@ -25,9 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ProfilDeveloppeurTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ProfileHeader(
-                        name = "Louis Baudat",
-                        role = "Étudiant en développement web à l'ESGI",
+                    ProfileScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -110,4 +108,22 @@ fun ProfileCard(
             )
         }
     }
+}
+
+
+@Composable
+fun ProfileScreen(modifier: Modifier = Modifier) {
+    ProfileCard(
+        name = "Louis Baudat",
+        role = "Étudiant en développement web l'ESGI",
+        description = "Étudiant en développement web à l'ESGI. Je m'intéresse particulièrement au développement full-stack, de Symfony/PHP/C# côté backend à React/TypeScript/Angular côté frontend.",
+        skills = listOf("Symfony", "React", "TypeScript", "C#","Angular"),
+        contact = "github.com/louisbdt",
+        onContactClick = {
+
+        },
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(24.dp)
+    )
 }
