@@ -14,6 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.profildeveloppeur.ui.theme.ProfilDeveloppeurTheme
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Surface
+import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,5 +67,47 @@ fun ContactButton(
         modifier = modifier
     ) {
         Text(text = label)
+    }
+}
+
+@Composable
+fun ProfileCard(
+    name: String,
+    role: String,
+    description: String,
+    skills: List<String>,
+    contact: String,
+    onContactClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Surface(modifier = modifier) {
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            ProfileHeader(
+                name = name,
+                role = role,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Text(
+                text = description,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+
+            for (skill in skills) {
+                SkillItem(
+                    skillName = skill,
+                    modifier = Modifier.padding(bottom = 4.dp)
+                )
+            }
+
+            Text(text = contact, modifier = Modifier.padding(bottom = 8.dp))
+
+            ContactButton(
+                label = "Voir mon GitHub",
+                onClick = onContactClick,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
     }
 }
