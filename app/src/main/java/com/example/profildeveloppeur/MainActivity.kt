@@ -127,3 +127,39 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
             .padding(24.dp)
     )
 }
+
+@Preview(showBackground = true)
+@Composable
+fun ProfileCardJuniorPreview() {
+    ProfilDeveloppeurTheme {
+        ProfileCard(
+            name = "Louis Baudat",
+            role = "Étudiant en développement web à l'ESGI",
+            description = "Je découvre actuellement Android et Jetpack Compose.",
+            skills = listOf("Symfony", "React", "TypeScript"),
+            contact = "github.com/louisbdt",
+            onContactClick = {},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ProfileCardFullStackPreview() {
+    ProfilDeveloppeurTheme {
+        ProfileCard(
+            name = "Louis Baudat",
+            role = "Développeur full-stack",
+            description = "En alternance depuis 1 an, où je réalise des applications en C#/Angular",
+            skills = listOf("C#", "Angular"),
+            contact = "github.com/louisbdt",
+            onContactClick = {},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp)
+        )
+    }
+}
